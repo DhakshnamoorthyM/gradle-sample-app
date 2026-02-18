@@ -14,5 +14,9 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-    - name: Build with Makefile
+        
+    - name: Build Application
       run: make build
+
+    - name: Deploy to Tomcat
+      run: make deploy
