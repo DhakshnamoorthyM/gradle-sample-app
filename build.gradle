@@ -1,0 +1,23 @@
+plugins {
+    id 'war'
+}
+
+group = 'com.sample'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+dependencies {
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+}
+
+war {
+    archiveFileName = 'helloworld.war'
+}
