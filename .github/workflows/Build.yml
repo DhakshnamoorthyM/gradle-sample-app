@@ -3,6 +3,10 @@ name: Build and Deploy
 on:
   workflow_dispatch: 
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,6 +24,12 @@ jobs:
         
     - name: Build Application
       run: make build
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: ${{ secrets.OIDC_ARN }} 
+        region: eu-west-1
 
     - name: Deploy to Tomcat
       run: make deploy s3_bucket=${{ env.BUCKET }} instance_id=${{ env.Instance }}
