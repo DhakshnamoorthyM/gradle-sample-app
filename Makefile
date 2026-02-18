@@ -4,4 +4,5 @@ SHELL := /bin/bash
 
 build:
 	@echo "Build Application"
+	chmod +x gradlew
 	./gradlew war
