@@ -15,5 +15,5 @@ deploy:
 	aws ssm send-command \
 		--document-name "AWS-RunShellScript" \
 		--instance-ids "$(instance_id)" \
-		--parameters 'commands=["aws s3 cp s3://$(s3_bucket)/*.war /tmp/app.war", "sudo mv /tmp/app.war /webserver/tomcat/webapps/"]' \
+		--parameters 'commands=["aws s3 cp s3://$(s3_bucket)/helloworld.war /tmp/app.war", "sudo mv /tmp/app.war /webserver/tomcat/webapps/"]' \
 		--comment "Deploying application to EC2 instances"
