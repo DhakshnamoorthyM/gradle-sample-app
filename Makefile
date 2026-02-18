@@ -3,5 +3,5 @@ SHELL := /bin/bash
 .ONESHELL:
 
 build:
-  @echo "Build Application"
-  ./gradlew war
+	@echo "Build Application"
+	./gradlew war
